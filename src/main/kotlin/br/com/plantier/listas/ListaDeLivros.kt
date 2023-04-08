@@ -52,6 +52,5 @@ fun main() {
         .sortedBy { it.anoPublicacao }
         //.imprimeComMarcadores()
         .map { it.titulo } // retorna um array de string
-
     println(titulos)
 }
