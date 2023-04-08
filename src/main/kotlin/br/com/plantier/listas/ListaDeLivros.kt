@@ -41,10 +41,19 @@ fun main() {
     livros.remove(livro1)
 
     var ordenadoAnoPublicacao = livros.sorted()
-    //livros.imprimeComMarcadores()
+    livros.imprimeComMarcadores()
     ordenadoAnoPublicacao.imprimeComMarcadores()
 
     livros.sortedBy { it.titulo }.imprimeComMarcadores()
+    println("== == == == ==")
+    // filtros em listas
+    val titulos: List<String> = listaDeLivros
+        .filter { it.autor.startsWith("Stan") }
+        .sortedBy { it.anoPublicacao }
+        //.imprimeComMarcadores()
+        .map { it.titulo }
+
+    println(titulos)
 }
 
 fun List<Livro>.imprimeComMarcadores() {
