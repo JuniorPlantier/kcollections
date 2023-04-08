@@ -2,18 +2,15 @@ package br.com.plantier.listas
 
 class Prateleira(
         val genero: String,
-        val livros: MutableList<Livro>
+        val livros: List<Livro>
 ) {
 
-    fun organizarPorAutor(): MutableList<Livro> {
-        livros.sortBy { it.autor }
-        return livros
+    fun organizarPorAutor(): List<Livro> {
+        return livros.sortedBy { it.autor } // retorna uma lista nova
     }
 
-    fun organizarPorAno(): MutableList<Livro> {
-        livros.sortBy { it.anoPublicacao }
-        return livros
+    fun organizarPorAno(): List<Livro> {
+        return livros.sortedBy { it.anoPublicacao }
     }
-
 
 }

@@ -8,7 +8,5 @@ fun main() {
 
     porAutor.imprimeComMarcadores()
     porAno.imprimeComMarcadores()
-    /* Ambas varáveis apontam para a mesma lista, por isso a impressão segue a mesma ordem */
-
-    
+    /* agora estamos apontando para objetos novos, pois a List é imutavel */
 }
