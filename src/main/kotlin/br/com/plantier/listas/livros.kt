@@ -94,7 +94,7 @@ val listaDeLivrosComNulos: MutableList<Livro?> = mutableListOf(
     ),
     Livro(
         titulo = "Chuva",
-        autor = "Carlo Alberto N.",
+        autor = "Carlos Alberto N.",
         anoPublicacao = 1989,
         editora = "Editora A"
     ),
