@@ -51,14 +51,7 @@ fun main() {
         .filter { it.autor.startsWith("Stan") }
         .sortedBy { it.anoPublicacao }
         //.imprimeComMarcadores()
-        .map { it.titulo }
+        .map { it.titulo } // retorna um array de string
 
     println(titulos)
-}
-
-fun List<Livro>.imprimeComMarcadores() {
-    val textoFormatado = this.joinToString("\n") {
-        " - ${it.titulo} de ${it.autor}"
-    }
-    println(" ##### Lista de Livros ##### \n$textoFormatado")
 }
