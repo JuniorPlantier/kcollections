@@ -39,10 +39,15 @@ fun main() {
     )
 
     livros.remove(livro1)
-    livros.imprimeComMarcadores()
+
+    var ordenadoAnoPublicacao = livros.sorted()
+    //livros.imprimeComMarcadores()
+    ordenadoAnoPublicacao.imprimeComMarcadores()
+
+    livros.sortedBy { it.titulo }.imprimeComMarcadores()
 }
 
-fun MutableList<Livro>.imprimeComMarcadores() {
+fun List<Livro>.imprimeComMarcadores() {
     val textoFormatado = this.joinToString("\n") {
         " - ${it.titulo} de ${it.autor}"
     }
