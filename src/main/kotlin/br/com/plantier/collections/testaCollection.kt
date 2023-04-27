@@ -1,6 +1,6 @@
-package br.com.plantier.listas
+package br.com.plantier.collections
 
-fun main() {
+fun testaCopia() {
     val banco = BancoDeDados()
 //    banco.nomes.add("Lina")
     banco.salvar("Lina")
