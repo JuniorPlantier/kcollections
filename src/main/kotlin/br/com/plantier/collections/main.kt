@@ -1,47 +1,31 @@
 package br.com.plantier.collections
 
 fun main() {
+    // transformar coleções: dado um operação, devolver uma nova coleção baseando-se em outra.
+    // utilizando associação
 
-    val pedidos = mutableMapOf(
-        Pair(1, 20.0),
-        Pair(2, 89.56),
-        3 to 155.60,
-        4 to 100.0,
-        5 to 15.0,
-        6 to 115.65
+    val pedidos = listOf(
+        Pedido(1, 20.0),
+        Pedido(2, 35.35),
+        Pedido(3, 59.59),
+        Pedido(4, 77.0)
     )
-
-    val pedido01 = pedidos.get(1)
-//    val pedido02 = pedidos.getValue(5) // se o valor não existir ele retorna uma exception
-
-
-    println(pedidos.getOrElse(1, {
-        "Não tem o pedido"
-    }))
-
-    pedidos.getOrDefault(0, -1)
-
-//    println(pedidos.keys)
-    println(pedidos.values)
-
-    for (nroPedido in pedidos.keys) {
-        println("Pedido $nroPedido")
+    println(pedidos)
+//    val pedidosMapeados = pedidos.associate { pedido: Pedido ->
+//        Pair(pedido.numero, pedido.valor)
+//        pedido.numero to pedido.valor
+//    }
+    val pedidosMapeados: Map<Int, Pedido> = pedidos.associateBy { pedido: Pedido ->
+        pedido.numero
     }
+    println(pedidosMapeados)
+    println(pedidosMapeados[1])
 
-    for (valor in pedidos.values) {
-        println("Pedido $valor")
+    val pedidosFreteGratis: Map<Pedido, Boolean> = pedidos.associateWith { pedido ->
+        pedido.valor > 50.0
     }
-
-    val pedidosFiltradors = pedidos.filter { (nro, valor) ->
-        nro % 2 == 0 && valor > 100.0
-    }
-    println(pedidosFiltradors)
-
-    val pedidosAcima = pedidos.filterValues { valor ->
-        valor > 70.0
-    }
-
-    val pedidosPares = pedidos.filterKeys { nro ->
-        nro % 2 == 0
-    }
+    println(pedidosFreteGratis)
+    println(pedidosFreteGratis[Pedido(7, 77.0)])
 }
+
+data class Pedido(val numero: Int, val valor: Double)
